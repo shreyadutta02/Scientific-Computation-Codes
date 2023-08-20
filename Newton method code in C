@@ -1,0 +1,22 @@
+//newton
+#include<stdio.h>
+#include<math.h>
+#define f(x) (x*x*x-2*x-5)
+#define df(x) (3*x*x-2)
+int main(){
+    float x1,x2,E;
+    printf("\n Enter the initial value x1 also enter the stopping criterion\n");
+    scanf("%f %f",&x1,&E);
+    if(f(x1)==0)
+    printf("The root is: %f",x1);
+    else{
+        printf("x1\t x2\t f(x2)\n"); }
+    do{
+        x2=x1-f(x1)/df(x1);
+        printf("%f \t %f \t %f \n",x1,x2,f(x2));
+        x1=x2; }
+    while(fabs(f(x2))>E);
+    //printf("%f\n",f(x2));
+    printf("%f\n",x2);
+    return 0;
+}
